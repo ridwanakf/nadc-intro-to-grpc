@@ -29,22 +29,22 @@ func (s *BookService) InitDB() error{
 	return nil
 }
 
-func (s *BookService) GetBookByID(context.Context, *protos.BookIDRequest) (*protos.Book, error) {
+func (s *BookService) GetBookByID(ctx context.Context, req *protos.BookIDRequest) (*protos.Book, error) {
 	panic("implement me")
 }
 
-func (s *BookService) InsertNewBook(context.Context, *protos.Book) (*protos.BoolResponse, error) {
+func (s *BookService) InsertNewBook(ctx context.Context, req *protos.Book) (*protos.BoolResponse, error) {
 	panic("implement me")
 }
 
-func (s *BookService) UpdateBookRating(context.Context, *protos.BookRateRequest) (*protos.BoolResponse, error) {
+func (s *BookService) UpdateBookRating(ctx context.Context, req *protos.BookRateRequest) (*protos.BoolResponse, error) {
 	panic("implement me")
 }
 
-func (s *BookService) DeleteBookByID(context.Context, *protos.BookIDRequest) (*protos.BoolResponse, error) {
+func (s *BookService) DeleteBookByID(ctx context.Context, req *protos.BookIDRequest) (*protos.BoolResponse, error) {
 	panic("implement me")
 }
 
-func (s *BookService) SearchBookByName(context.Context, *protos.BookSlugRequest) (*protos.Book, error) {
+func (s *BookService) SearchBookByName(ctx context.Context, req *protos.BookSlugRequest) (*protos.Book, error) {
 	panic("implement me")
 }

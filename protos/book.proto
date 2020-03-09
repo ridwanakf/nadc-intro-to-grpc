@@ -11,11 +11,17 @@ service BookService {
     }
     rpc DeleteBookByID (BookIDRequest) returns (BoolResponse) {
     }
-    rpc SearchBookByName (BookSlugRequest) returns (Book) {
+    rpc SearchBookByName (BookSlugRequest) returns (BooksResponse) {
     }
 }
 
 message Book {
+}
+
+message BoolResponse {
+}
+
+message BooksResponse{
 }
 
 message BookIDRequest {
@@ -27,6 +33,4 @@ message BookSlugRequest {
 message BookRateRequest {
 }
 
-message BoolResponse {
-}
 
