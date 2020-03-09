@@ -45,6 +45,6 @@ func (s *BookService) DeleteBookByID(ctx context.Context, req *protos.BookIDRequ
 	panic("implement me")
 }
 
-func (s *BookService) SearchBookByName(ctx context.Context, req *protos.BookSlugRequest) (*protos.Book, error) {
+func (s *BookService) SearchBookByName(ctx context.Context, req *protos.BookSlugRequest) (*protos.BooksResponse, error) {
 	panic("implement me")
 }

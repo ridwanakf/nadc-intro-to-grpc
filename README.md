@@ -13,11 +13,13 @@ There are three branches in this repository, they are:
 
 ### Prerequisites
 
-1. Clone repository: `git clone git@github.com:ridwanakf/nadc-intro-to-grpc.git`
-2. Run dep: `dep ensure -v`
-3. Generate protobuf code: `make proto`
-3. Install postgresql: [Postgresql]("https://www.postgresql.org/download/")
-4. Run database migrations: refer below
+1. Install postgresql: [Postgresql](https://www.postgresql.org/download/)
+2. Install protocol buffers 3: [Proto3](https://github.com/protocolbuffers/protobuf)
+3. Clone repository: `git clone git@github.com:ridwanakf/nadc-intro-to-grpc.git`
+4. Run dep: `dep ensure -v`
+5. Generate protobuf code: `make proto`
+6. Run database migrations: refer below
+7. Run project
 
 ### Run Project
 
@@ -42,7 +44,9 @@ This repository is organized in the following directory structure.
 nadc-intro-to-grpc
 |-- internal                               # Go files in this folder represent the Big-Pictures and Contracts of the system
 |-- migrations                             # Contains Database migration files or the system
+|-- protos                                 # Contains proto files and its generated code
 |-- vendor                                 # Dependencies folder that's maintained by dep tool https://golang.github.io/dep/
+|-- app.go                            # contains main package, and entry point of the app
 |-- Gopkg.lock                             # https://golang.github.io/dep/docs/Gopkg.lock.html
 |-- Gopkg.toml                             # https://golang.github.io/dep/docs/Gopkg.toml.html
 ```
@@ -51,3 +55,5 @@ nadc-intro-to-grpc
 
 - Golang
 - Postgresql
+- Protobuf
+- gRPC
