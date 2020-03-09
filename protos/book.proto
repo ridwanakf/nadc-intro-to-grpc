@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package protos;
+
+service BookService {
+    rpc GetBookByID (BookIDRequest) returns (Book) {
+    }
+    rpc InsertNewBook (Book) returns (BoolResponse) {
+    }
+    rpc UpdateBookRating (BookRateRequest) returns (BoolResponse) {
+    }
+    rpc DeleteBookByID (BookIDRequest) returns (BoolResponse) {
+    }
+    rpc SearchBookByName (BookSlugRequest) returns (Book) {
+    }
+}
+
+message Book {
+}
+
+message BookIDRequest {
+}
+
+message BookSlugRequest {
+}
+
+message BookRateRequest {
+}
+
+message BoolResponse {
+}
+
