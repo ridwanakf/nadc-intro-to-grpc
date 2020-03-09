@@ -46,7 +46,7 @@ nadc-intro-to-grpc
 |-- migrations                             # Contains Database migration files or the system
 |-- protos                                 # Contains proto files and its generated code
 |-- vendor                                 # Dependencies folder that's maintained by dep tool https://golang.github.io/dep/
-|-- app.go                            # contains main package, and entry point of the app
+|-- app.go                                 # contains main package, and entry point of the app
 |-- Gopkg.lock                             # https://golang.github.io/dep/docs/Gopkg.lock.html
 |-- Gopkg.toml                             # https://golang.github.io/dep/docs/Gopkg.toml.html
 ```
