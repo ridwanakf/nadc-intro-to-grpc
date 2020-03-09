@@ -25,6 +25,11 @@ var _ = math.Inf
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
 type Book struct {
+	BookId               int32    `protobuf:"varint,1,opt,name=book_id,json=bookId,proto3" json:"book_id,omitempty"`
+	BookTitle            string   `protobuf:"bytes,2,opt,name=book_title,json=bookTitle,proto3" json:"book_title,omitempty"`
+	BookAuthorName       string   `protobuf:"bytes,3,opt,name=book_author_name,json=bookAuthorName,proto3" json:"book_author_name,omitempty"`
+	BookCategory         string   `protobuf:"bytes,4,opt,name=book_category,json=bookCategory,proto3" json:"book_category,omitempty"`
+	BookRate             float32  `protobuf:"fixed32,5,opt,name=book_rate,json=bookRate,proto3" json:"book_rate,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -55,100 +60,82 @@ func (m *Book) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_Book proto.InternalMessageInfo
 
-type BookIDRequest struct {
+func (m *Book) GetBookId() int32 {
+	if m != nil {
+		return m.BookId
+	}
+	return 0
+}
+
+func (m *Book) GetBookTitle() string {
+	if m != nil {
+		return m.BookTitle
+	}
+	return ""
+}
+
+func (m *Book) GetBookAuthorName() string {
+	if m != nil {
+		return m.BookAuthorName
+	}
+	return ""
+}
+
+func (m *Book) GetBookCategory() string {
+	if m != nil {
+		return m.BookCategory
+	}
+	return ""
+}
+
+func (m *Book) GetBookRate() float32 {
+	if m != nil {
+		return m.BookRate
+	}
+	return 0
+}
+
+type BooksResponse struct {
+	Books                []*Book  `protobuf:"bytes,1,rep,name=books,proto3" json:"books,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
 }
 
-func (m *BookIDRequest) Reset()         { *m = BookIDRequest{} }
-func (m *BookIDRequest) String() string { return proto.CompactTextString(m) }
-func (*BookIDRequest) ProtoMessage()    {}
-func (*BookIDRequest) Descriptor() ([]byte, []int) {
+func (m *BooksResponse) Reset()         { *m = BooksResponse{} }
+func (m *BooksResponse) String() string { return proto.CompactTextString(m) }
+func (*BooksResponse) ProtoMessage()    {}
+func (*BooksResponse) Descriptor() ([]byte, []int) {
 	return fileDescriptor_1e89d0eaa98dc5d8, []int{1}
 }
 
-func (m *BookIDRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_BookIDRequest.Unmarshal(m, b)
+func (m *BooksResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_BooksResponse.Unmarshal(m, b)
 }
-func (m *BookIDRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_BookIDRequest.Marshal(b, m, deterministic)
+func (m *BooksResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_BooksResponse.Marshal(b, m, deterministic)
 }
-func (m *BookIDRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_BookIDRequest.Merge(m, src)
+func (m *BooksResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_BooksResponse.Merge(m, src)
 }
-func (m *BookIDRequest) XXX_Size() int {
-	return xxx_messageInfo_BookIDRequest.Size(m)
+func (m *BooksResponse) XXX_Size() int {
+	return xxx_messageInfo_BooksResponse.Size(m)
 }
-func (m *BookIDRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_BookIDRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_BookIDRequest proto.InternalMessageInfo
-
-type BookSlugRequest struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
+func (m *BooksResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_BooksResponse.DiscardUnknown(m)
 }
 
-func (m *BookSlugRequest) Reset()         { *m = BookSlugRequest{} }
-func (m *BookSlugRequest) String() string { return proto.CompactTextString(m) }
-func (*BookSlugRequest) ProtoMessage()    {}
-func (*BookSlugRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_1e89d0eaa98dc5d8, []int{2}
-}
+var xxx_messageInfo_BooksResponse proto.InternalMessageInfo
 
-func (m *BookSlugRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_BookSlugRequest.Unmarshal(m, b)
+func (m *BooksResponse) GetBooks() []*Book {
+	if m != nil {
+		return m.Books
+	}
+	return nil
 }
-func (m *BookSlugRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_BookSlugRequest.Marshal(b, m, deterministic)
-}
-func (m *BookSlugRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_BookSlugRequest.Merge(m, src)
-}
-func (m *BookSlugRequest) XXX_Size() int {
-	return xxx_messageInfo_BookSlugRequest.Size(m)
-}
-func (m *BookSlugRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_BookSlugRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_BookSlugRequest proto.InternalMessageInfo
-
-type BookRateRequest struct {
-	XXX_NoUnkeyedLiteral struct{} `json:"-"`
-	XXX_unrecognized     []byte   `json:"-"`
-	XXX_sizecache        int32    `json:"-"`
-}
-
-func (m *BookRateRequest) Reset()         { *m = BookRateRequest{} }
-func (m *BookRateRequest) String() string { return proto.CompactTextString(m) }
-func (*BookRateRequest) ProtoMessage()    {}
-func (*BookRateRequest) Descriptor() ([]byte, []int) {
-	return fileDescriptor_1e89d0eaa98dc5d8, []int{3}
-}
-
-func (m *BookRateRequest) XXX_Unmarshal(b []byte) error {
-	return xxx_messageInfo_BookRateRequest.Unmarshal(m, b)
-}
-func (m *BookRateRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
-	return xxx_messageInfo_BookRateRequest.Marshal(b, m, deterministic)
-}
-func (m *BookRateRequest) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_BookRateRequest.Merge(m, src)
-}
-func (m *BookRateRequest) XXX_Size() int {
-	return xxx_messageInfo_BookRateRequest.Size(m)
-}
-func (m *BookRateRequest) XXX_DiscardUnknown() {
-	xxx_messageInfo_BookRateRequest.DiscardUnknown(m)
-}
-
-var xxx_messageInfo_BookRateRequest proto.InternalMessageInfo
 
 type BoolResponse struct {
+	Response             bool     `protobuf:"varint,1,opt,name=response,proto3" json:"response,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
 	XXX_unrecognized     []byte   `json:"-"`
 	XXX_sizecache        int32    `json:"-"`
@@ -158,7 +145,7 @@ func (m *BoolResponse) Reset()         { *m = BoolResponse{} }
 func (m *BoolResponse) String() string { return proto.CompactTextString(m) }
 func (*BoolResponse) ProtoMessage()    {}
 func (*BoolResponse) Descriptor() ([]byte, []int) {
-	return fileDescriptor_1e89d0eaa98dc5d8, []int{4}
+	return fileDescriptor_1e89d0eaa98dc5d8, []int{2}
 }
 
 func (m *BoolResponse) XXX_Unmarshal(b []byte) error {
@@ -179,33 +166,176 @@ func (m *BoolResponse) XXX_DiscardUnknown() {
 
 var xxx_messageInfo_BoolResponse proto.InternalMessageInfo
 
+func (m *BoolResponse) GetResponse() bool {
+	if m != nil {
+		return m.Response
+	}
+	return false
+}
+
+type BookIDRequest struct {
+	BookId               int32    `protobuf:"varint,1,opt,name=book_id,json=bookId,proto3" json:"book_id,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *BookIDRequest) Reset()         { *m = BookIDRequest{} }
+func (m *BookIDRequest) String() string { return proto.CompactTextString(m) }
+func (*BookIDRequest) ProtoMessage()    {}
+func (*BookIDRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1e89d0eaa98dc5d8, []int{3}
+}
+
+func (m *BookIDRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_BookIDRequest.Unmarshal(m, b)
+}
+func (m *BookIDRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_BookIDRequest.Marshal(b, m, deterministic)
+}
+func (m *BookIDRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_BookIDRequest.Merge(m, src)
+}
+func (m *BookIDRequest) XXX_Size() int {
+	return xxx_messageInfo_BookIDRequest.Size(m)
+}
+func (m *BookIDRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_BookIDRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_BookIDRequest proto.InternalMessageInfo
+
+func (m *BookIDRequest) GetBookId() int32 {
+	if m != nil {
+		return m.BookId
+	}
+	return 0
+}
+
+type BookSlugRequest struct {
+	BookName             string   `protobuf:"bytes,1,opt,name=book_name,json=bookName,proto3" json:"book_name,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *BookSlugRequest) Reset()         { *m = BookSlugRequest{} }
+func (m *BookSlugRequest) String() string { return proto.CompactTextString(m) }
+func (*BookSlugRequest) ProtoMessage()    {}
+func (*BookSlugRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1e89d0eaa98dc5d8, []int{4}
+}
+
+func (m *BookSlugRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_BookSlugRequest.Unmarshal(m, b)
+}
+func (m *BookSlugRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_BookSlugRequest.Marshal(b, m, deterministic)
+}
+func (m *BookSlugRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_BookSlugRequest.Merge(m, src)
+}
+func (m *BookSlugRequest) XXX_Size() int {
+	return xxx_messageInfo_BookSlugRequest.Size(m)
+}
+func (m *BookSlugRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_BookSlugRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_BookSlugRequest proto.InternalMessageInfo
+
+func (m *BookSlugRequest) GetBookName() string {
+	if m != nil {
+		return m.BookName
+	}
+	return ""
+}
+
+type BookRateRequest struct {
+	BookId               int32    `protobuf:"varint,1,opt,name=book_id,json=bookId,proto3" json:"book_id,omitempty"`
+	BookRate             float32  `protobuf:"fixed32,2,opt,name=book_rate,json=bookRate,proto3" json:"book_rate,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *BookRateRequest) Reset()         { *m = BookRateRequest{} }
+func (m *BookRateRequest) String() string { return proto.CompactTextString(m) }
+func (*BookRateRequest) ProtoMessage()    {}
+func (*BookRateRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_1e89d0eaa98dc5d8, []int{5}
+}
+
+func (m *BookRateRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_BookRateRequest.Unmarshal(m, b)
+}
+func (m *BookRateRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_BookRateRequest.Marshal(b, m, deterministic)
+}
+func (m *BookRateRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_BookRateRequest.Merge(m, src)
+}
+func (m *BookRateRequest) XXX_Size() int {
+	return xxx_messageInfo_BookRateRequest.Size(m)
+}
+func (m *BookRateRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_BookRateRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_BookRateRequest proto.InternalMessageInfo
+
+func (m *BookRateRequest) GetBookId() int32 {
+	if m != nil {
+		return m.BookId
+	}
+	return 0
+}
+
+func (m *BookRateRequest) GetBookRate() float32 {
+	if m != nil {
+		return m.BookRate
+	}
+	return 0
+}
+
 func init() {
 	proto.RegisterType((*Book)(nil), "protos.Book")
+	proto.RegisterType((*BooksResponse)(nil), "protos.BooksResponse")
+	proto.RegisterType((*BoolResponse)(nil), "protos.BoolResponse")
 	proto.RegisterType((*BookIDRequest)(nil), "protos.BookIDRequest")
 	proto.RegisterType((*BookSlugRequest)(nil), "protos.BookSlugRequest")
 	proto.RegisterType((*BookRateRequest)(nil), "protos.BookRateRequest")
-	proto.RegisterType((*BoolResponse)(nil), "protos.BoolResponse")
 }
 
 func init() { proto.RegisterFile("book.proto", fileDescriptor_1e89d0eaa98dc5d8) }
 
 var fileDescriptor_1e89d0eaa98dc5d8 = []byte{
-	// 227 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x4a, 0xca, 0xcf, 0xcf,
-	0xd6, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x03, 0x53, 0xc5, 0x4a, 0x6c, 0x5c, 0x2c, 0x4e,
-	0xf9, 0xf9, 0xd9, 0x4a, 0xfc, 0x5c, 0xbc, 0x20, 0xda, 0xd3, 0x25, 0x28, 0xb5, 0xb0, 0x34, 0xb5,
-	0xb8, 0x44, 0x49, 0x90, 0x8b, 0x1f, 0x24, 0x10, 0x9c, 0x53, 0x9a, 0x8e, 0x26, 0x14, 0x94, 0x58,
-	0x92, 0x0a, 0x13, 0xe2, 0xe3, 0xe2, 0x71, 0xca, 0xcf, 0xcf, 0x09, 0x4a, 0x2d, 0x2e, 0xc8, 0xcf,
-	0x2b, 0x4e, 0x35, 0xda, 0xcb, 0xc4, 0xc5, 0x0d, 0xd6, 0x96, 0x5a, 0x54, 0x96, 0x99, 0x9c, 0x2a,
-	0x64, 0xc2, 0xc5, 0xed, 0x9e, 0x5a, 0x02, 0x12, 0x71, 0xaa, 0xf4, 0x74, 0x11, 0x12, 0x85, 0xd8,
-	0x5e, 0xac, 0x87, 0x62, 0x97, 0x14, 0x0f, 0xb2, 0xb0, 0x12, 0x83, 0x90, 0x29, 0x17, 0xaf, 0x67,
-	0x5e, 0x71, 0x6a, 0x51, 0x89, 0x5f, 0x6a, 0x39, 0x48, 0x48, 0x08, 0x45, 0x81, 0x94, 0x08, 0x12,
-	0x0f, 0x6e, 0xb5, 0x12, 0x83, 0x90, 0x33, 0x97, 0x40, 0x68, 0x41, 0x4a, 0x62, 0x49, 0x2a, 0xd4,
-	0x95, 0x99, 0x79, 0xe9, 0x42, 0xe2, 0xc8, 0x3a, 0x91, 0x5c, 0x8e, 0xd3, 0x10, 0x7b, 0x2e, 0x3e,
-	0x97, 0xd4, 0x9c, 0x54, 0x88, 0x21, 0xf8, 0x1c, 0x8d, 0xcb, 0x00, 0x6b, 0x2e, 0x81, 0xe0, 0xd4,
-	0xc4, 0xa2, 0xe4, 0x0c, 0x88, 0x01, 0x7e, 0x89, 0xb9, 0xa9, 0xa8, 0xae, 0x40, 0x0a, 0x52, 0x74,
-	0x9f, 0x27, 0x41, 0xa2, 0xc5, 0x18, 0x10, 0x00, 0x00, 0xff, 0xff, 0xee, 0x2d, 0xc7, 0x75, 0xab,
-	0x01, 0x00, 0x00,
+	// 393 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x84, 0x53, 0xcb, 0xae, 0xda, 0x30,
+	0x14, 0xbc, 0xc9, 0xbd, 0x50, 0x38, 0x3c, 0x8a, 0xac, 0x56, 0x44, 0xa9, 0x2a, 0x45, 0xee, 0x26,
+	0xea, 0x82, 0x05, 0xb4, 0xeb, 0xaa, 0x10, 0x09, 0x65, 0xc3, 0xc2, 0xb4, 0xeb, 0xc8, 0xc0, 0x11,
+	0x44, 0x84, 0x98, 0xda, 0xa6, 0x15, 0xbf, 0xd4, 0x0f, 0xe9, 0x77, 0x55, 0xb6, 0x21, 0x90, 0x05,
+	0xed, 0x2a, 0xf1, 0x9c, 0xf1, 0x78, 0x66, 0x9c, 0x00, 0xac, 0x84, 0xd8, 0x8f, 0x8e, 0x52, 0x68,
+	0x41, 0x9a, 0xf6, 0xa1, 0xe8, 0x6f, 0x0f, 0x5e, 0xa6, 0x42, 0xec, 0xc9, 0x10, 0x5e, 0x99, 0x71,
+	0x96, 0x6f, 0x02, 0x2f, 0xf2, 0xe2, 0x06, 0x6b, 0x9a, 0x65, 0xba, 0x21, 0xef, 0xdd, 0xbe, 0x4c,
+	0xe7, 0xba, 0xc0, 0xc0, 0x8f, 0xbc, 0xb8, 0xcd, 0xda, 0x06, 0xf9, 0x66, 0x00, 0x12, 0xc3, 0xc0,
+	0x8e, 0xf9, 0x49, 0xef, 0x84, 0xcc, 0x4a, 0x7e, 0xc0, 0xe0, 0xd9, 0x92, 0xfa, 0x06, 0xff, 0x6a,
+	0xe1, 0x05, 0x3f, 0x20, 0xf9, 0x00, 0x3d, 0xcb, 0x5c, 0x73, 0x8d, 0x5b, 0x21, 0xcf, 0xc1, 0x8b,
+	0xa5, 0x75, 0x0d, 0x38, 0xbb, 0x60, 0xe4, 0x1d, 0x58, 0xed, 0x4c, 0x72, 0x8d, 0x41, 0x23, 0xf2,
+	0x62, 0x9f, 0xb5, 0x0c, 0xc0, 0xb8, 0x46, 0x3a, 0x81, 0x9e, 0xf1, 0xaa, 0x18, 0xaa, 0xa3, 0x28,
+	0x15, 0x12, 0x0a, 0x0d, 0x33, 0x54, 0x81, 0x17, 0x3d, 0xc7, 0x9d, 0x71, 0xd7, 0x85, 0x53, 0x23,
+	0xc3, 0x62, 0x6e, 0x44, 0x3f, 0x42, 0x77, 0x2a, 0x44, 0x51, 0xed, 0x09, 0xa1, 0x25, 0x2f, 0xef,
+	0x36, 0x69, 0x8b, 0x55, 0x6b, 0x1a, 0xbb, 0x03, 0xd2, 0x84, 0xe1, 0x8f, 0x13, 0x2a, 0xfd, 0xb0,
+	0x15, 0x3a, 0x82, 0xd7, 0x86, 0xb9, 0x2c, 0x4e, 0xdb, 0x2b, 0xf7, 0x6a, 0xdd, 0x56, 0xe0, 0xd9,
+	0x6c, 0xd6, 0xba, 0x09, 0x4f, 0xe7, 0x8e, 0x6f, 0x62, 0xfc, 0x4f, 0xbb, 0xde, 0x81, 0x5f, 0xef,
+	0x60, 0xfc, 0xc7, 0x87, 0x8e, 0x3d, 0x19, 0xe5, 0xcf, 0x7c, 0x8d, 0xe4, 0x13, 0x74, 0xe6, 0xa8,
+	0x0d, 0x32, 0x3d, 0xa7, 0x09, 0x79, 0x7b, 0x5f, 0x41, 0x95, 0x23, 0xac, 0x35, 0x43, 0x9f, 0xc8,
+	0x67, 0xe8, 0xa5, 0xa5, 0x42, 0xa9, 0x17, 0xf8, 0xcb, 0x5e, 0x7f, 0x8d, 0x10, 0xbe, 0xb9, 0x5b,
+	0x55, 0xcd, 0xd1, 0x27, 0x32, 0x83, 0xc1, 0xf7, 0xe3, 0x86, 0x6b, 0xbc, 0x64, 0xc9, 0xcb, 0x2d,
+	0x19, 0xd6, 0x4a, 0xbf, 0xe5, 0x7b, 0x28, 0xf2, 0x05, 0xfa, 0x09, 0x16, 0xe8, 0x44, 0xfe, 0x65,
+	0xfa, 0x91, 0x40, 0x02, 0x83, 0x25, 0x72, 0xb9, 0xde, 0x39, 0x01, 0xfb, 0x71, 0xd5, 0x5c, 0xdc,
+	0xdd, 0x4a, 0x58, 0xd3, 0x56, 0x37, 0x95, 0x95, 0xfb, 0x03, 0x26, 0x7f, 0x03, 0x00, 0x00, 0xff,
+	0xff, 0x04, 0x7c, 0x00, 0x75, 0x16, 0x03, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -224,7 +354,7 @@ type BookServiceClient interface {
 	InsertNewBook(ctx context.Context, in *Book, opts ...grpc.CallOption) (*BoolResponse, error)
 	UpdateBookRating(ctx context.Context, in *BookRateRequest, opts ...grpc.CallOption) (*BoolResponse, error)
 	DeleteBookByID(ctx context.Context, in *BookIDRequest, opts ...grpc.CallOption) (*BoolResponse, error)
-	SearchBookByName(ctx context.Context, in *BookSlugRequest, opts ...grpc.CallOption) (*Book, error)
+	SearchBookByName(ctx context.Context, in *BookSlugRequest, opts ...grpc.CallOption) (*BooksResponse, error)
 }
 
 type bookServiceClient struct {
@@ -271,8 +401,8 @@ func (c *bookServiceClient) DeleteBookByID(ctx context.Context, in *BookIDReques
 	return out, nil
 }
 
-func (c *bookServiceClient) SearchBookByName(ctx context.Context, in *BookSlugRequest, opts ...grpc.CallOption) (*Book, error) {
-	out := new(Book)
+func (c *bookServiceClient) SearchBookByName(ctx context.Context, in *BookSlugRequest, opts ...grpc.CallOption) (*BooksResponse, error) {
+	out := new(BooksResponse)
 	err := c.cc.Invoke(ctx, "/protos.BookService/SearchBookByName", in, out, opts...)
 	if err != nil {
 		return nil, err
@@ -286,7 +416,7 @@ type BookServiceServer interface {
 	InsertNewBook(context.Context, *Book) (*BoolResponse, error)
 	UpdateBookRating(context.Context, *BookRateRequest) (*BoolResponse, error)
 	DeleteBookByID(context.Context, *BookIDRequest) (*BoolResponse, error)
-	SearchBookByName(context.Context, *BookSlugRequest) (*Book, error)
+	SearchBookByName(context.Context, *BookSlugRequest) (*BooksResponse, error)
 }
 
 // UnimplementedBookServiceServer can be embedded to have forward compatible implementations.
@@ -305,7 +435,7 @@ func (*UnimplementedBookServiceServer) UpdateBookRating(ctx context.Context, req
 func (*UnimplementedBookServiceServer) DeleteBookByID(ctx context.Context, req *BookIDRequest) (*BoolResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method DeleteBookByID not implemented")
 }
-func (*UnimplementedBookServiceServer) SearchBookByName(ctx context.Context, req *BookSlugRequest) (*Book, error) {
+func (*UnimplementedBookServiceServer) SearchBookByName(ctx context.Context, req *BookSlugRequest) (*BooksResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SearchBookByName not implemented")
 }
 
