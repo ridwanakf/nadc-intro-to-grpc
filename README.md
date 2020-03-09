@@ -1,4 +1,4 @@
-# nadc-intro-to-grpc
+# NADC - Intro to gRPC
 The second workshop of Night Login App Development Community (NADC) - Intro to gRPC using Go.
 
 ## Getting Started
