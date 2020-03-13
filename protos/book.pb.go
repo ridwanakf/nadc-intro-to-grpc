@@ -299,7 +299,7 @@ func (m *BookRateRequest) GetBookRate() float32 {
 }
 
 func init() {
-	proto.RegisterType((*Book)(nil), "protos.Book")
+	proto.RegisterType((*Book)(nil), "protos.BookUC")
 	proto.RegisterType((*BooksResponse)(nil), "protos.BooksResponse")
 	proto.RegisterType((*BoolResponse)(nil), "protos.BoolResponse")
 	proto.RegisterType((*BookIDRequest)(nil), "protos.BookIDRequest")

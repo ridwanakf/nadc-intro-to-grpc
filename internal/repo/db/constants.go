@@ -1,4 +1,4 @@
-package internal
+package db
 
 const(
 	SQLGetBookByID = `	SELECT book_id, book_name, book_author_name, book_rate, book_category 

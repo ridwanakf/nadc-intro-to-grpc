@@ -6,7 +6,7 @@ proto:
 # go build command for rpc server
 build:
 	@echo " >> building binaries for nadc-intro-to-grpc"
-	@go build -v -o nadc-intro-to-grpc app.go
+	@go build -v -o nadc-intro-to-grpc cmd/*.go
 
 # go run command for rpc server
 run: build
