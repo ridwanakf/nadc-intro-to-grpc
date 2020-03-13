@@ -11,7 +11,7 @@ purposes.
 There are three branches in this repository, they are:
 1. `master` : consists of basic code with no implementation on the methods. Used for code-along session.
 2. `final` : consists of all implementations and ready for deployment.
-3. `final-clean-arch` : consists of all implementations and ready for deployment.Developed using Clean Architecture.
+3. `final-clean-arch` : consists of all implementations and ready for deployment. Developed using Clean Architecture.
 
 ### Prerequisites
 
