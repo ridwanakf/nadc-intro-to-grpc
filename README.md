@@ -1,5 +1,6 @@
 # NADC - Intro to gRPC
 The second workshop of Night Login App Development Community (NADC) - Intro to gRPC using Go.
+This repo is intended to give an introduction to gRPC development using Go.
 
 ## Getting Started
 
@@ -9,7 +10,8 @@ purposes.
 ### Branches list
 There are three branches in this repository, they are:
 1. `master` : consists of basic code with no implementation on the methods. Used for code-along session.
-3. `final` : consists of all implementations and ready for deployment.
+2. `final` : consists of all implementations and ready for deployment.
+3. `final-clean-arch` : consists of all implementations and ready for deployment.Developed using Clean Architecture.
 
 ### Prerequisites
 
