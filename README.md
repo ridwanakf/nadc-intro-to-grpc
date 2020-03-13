@@ -1,6 +1,6 @@
-# NADC - Intro to GRPC
+# NADC - Intro to gRPC
 The second workshop of Night Login App Development Community (NADC) - Intro to gRPC using Go.
-This repo is intended to give an introduction to gRPC development using Golang.
+This repo is intended to give an introduction to gRPC development using Go.
 
 ## Getting Started
 
